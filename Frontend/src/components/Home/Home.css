@@ -1,0 +1,32 @@
+.home {
+  width: 100vw;
+  height: auto; 
+  overflow: hidden; 
+}
+
+.mainSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  width: 100%!important;
+  height: auto; 
+  background-color: black;
+}
+
+.video {
+  width: 100%!important; 
+  height: auto;
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  overflow: hidden;
+  border: solid 2px white;
+}
+
+video {
+  width: 100%!important;
+  height: auto; 
+  object-fit: cover;
+  display: block!important;
+}

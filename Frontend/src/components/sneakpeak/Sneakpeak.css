@@ -1,0 +1,149 @@
+/* Allow scrolling, hide scrollbar visually */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: auto;
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE 10+ */
+}
+
+/* Chrome, Safari */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Full page container */
+.sneakpeak-container {
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  background-image: url('./registerbg.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-family: 'Fraunces', serif;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Title */
+
+
+/* Scrollable row of cards */
+.scroll-wrapper {
+  display: flex;
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 20px;
+  padding: 10px 0;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 100px;
+  
+}
+
+/* Hide scrollbar (Chrome/Safari) */
+.scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mentor card design */
+.mentor-card {
+  flex: 0 0 auto;
+  width: 450px;
+  height: 530px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  border-radius: 16px;
+  padding: 20px;
+  scroll-snap-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Text inside card */
+.mentor-card h4,
+.mentor-card h6,
+.mentor-card p {
+  margin: 10px 0;
+  color: #fff;
+}
+
+/* Button */
+.btn {
+  background: #2E8B57;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  align-self: center;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #1f5d3e;
+}
+/* Arrow styles */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  line-height: 46px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.arrow:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+/* Ensure container is positioned relatively */
+.sneakpeak-container {
+  position: relative; /* <-- add this line if it's not already there */
+}
+
+
+/* Responsive */
+@media (max-width: 600px) {
+  .mentor-card {
+    width: 80vw;
+    height: 480px;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+}

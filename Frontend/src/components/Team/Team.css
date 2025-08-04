@@ -1,0 +1,247 @@
+/* Box sizing for consistent layout */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Base reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Team container */
+.team-members {
+  position: relative;
+  text-align: center;
+  color: white;
+  font-family: 'Fraunces', serif;
+  background-image: url('../../assets/team_bg.png');
+  background-size: cover;
+  background-position: center;
+  padding: 10vh 0;
+  animation: moveBackground 10s linear infinite alternate;
+}
+
+/* Dark overlay */
+.team-members::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* Make sure content is above overlay */
+.team-members > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Headings */
+.headingg {
+  font-size: 60px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #FFFFFF;
+}
+
+.head2 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #FFFFFF;
+}
+
+.sub-head {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 30px 0;
+  color: #FFFFFF;
+}
+
+/* Layout */
+.team-grid-single {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100vw;
+  margin: 0 auto 50px;
+}
+
+.team-grid-core {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  justify-items: center;
+  gap: 40px;
+  max-width: 90vw;
+  margin: 0 auto 50px;
+}
+
+/* Team member card */
+.team-member {
+  text-align: center;
+  padding: 20px 10px;
+}
+
+/* Profile images */
+.image-circle,
+.image-circle-large {
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+  background-color: transparent;
+  transition: transform 0.3s ease;
+}
+
+.image-circle:hover,
+.image-circle-large:hover {
+  transform: scale(1.05);
+}
+
+.image-circle {
+  width: 302px;
+  height: 305.77px;
+}
+
+.image-circle-large {
+  width: 353.62px;
+  height: 358.04px;
+}
+
+/* Member name */
+.name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 15px;
+  color: #FFFFFF;
+}
+
+/* Social icons */
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.icon:hover {
+  opacity: 1;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .team-grid-core {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .image-circle-large {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .headingg {
+    font-size: 50px;
+  }
+  .head2 {
+    font-size: 35px;
+  }
+  .sub-head, .name {
+    font-size: 22px;
+  }
+
+  .image-circle,
+  .image-circle-large {
+    width: 180px;
+    height: 180px;
+  }
+
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .team-grid-core {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .headingg {
+    font-size: 40px;
+  }
+  .head2 {
+    font-size: 30px;
+  }
+  .sub-head, .name {
+    font-size: 20px;
+  }
+
+  .image-circle,
+  .image-circle-large {
+    width: 160px;
+    height: 160px;
+  }
+
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-grid-core {
+    grid-template-columns: 1fr;
+  }
+
+  .headingg {
+    font-size: 30px;
+  }
+  .head2 {
+    font-size: 25px;
+  }
+  .sub-head, .name {
+    font-size: 18px;
+  }
+
+  .image-circle,
+  .image-circle-large {
+    width: 140px;
+    height: 140px;
+  }
+
+  .icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Subtle animation */
+@keyframes moveBackground {
+  0% {
+    background-position: center;
+  }
+  100% {
+    background-position: center 10%;
+  }
+}
