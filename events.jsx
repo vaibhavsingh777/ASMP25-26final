@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Events.css';
 import backgroundImage from '../../assets/451b3aaa69d520e989a9346523b2b7d259b4e2eb.jpg';
 
-
-
 const EventImages = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const scrollRefs = useRef([]);
+  const animationRefs = useRef([]);
 
   const events = [
     {
@@ -40,56 +40,68 @@ const EventImages = () => {
 
   const handleClick = (index) => {
     setActiveIndex(index === activeIndex ? null : index);
-    
   };
+
+  useEffect(() => {
+    scrollRefs.current.forEach((el, index) => {
+      cancelAnimationFrame(animationRefs.current[index]);
+    });
+
+    if (activeIndex === null) return;
+
+    const el = scrollRefs.current[activeIndex];
+    if (!el) return;
+
+    el.style.top = '100%';
+    const step = () => {
+      const currentTop = parseFloat(el.style.top);
+      if (currentTop <= 0) {
+        el.style.top = '0px';
+        return;
+      }
+      el.style.top = `${currentTop - 1}px`;
+      animationRefs.current[activeIndex] = requestAnimationFrame(step);
+    };
+
+    animationRefs.current[activeIndex] = requestAnimationFrame(step);
+  }, [activeIndex]);
 
   return (
     <div
-  className='main-container-events'
-  style={{
-    backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-  }}
->
-
+      className='main-container-events'
+      style={{
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <h1 className='heading'>Events</h1>
       <div className='event-images-container'>
         {events.map((event, index) => (
-          <div
-            key={event.id}
-            className='event-item'
-            onClick={() => handleClick(index)}
-          >
+          <div key={event.id} className='event-item' onClick={() => handleClick(index)}>
             <div className='flip-container'>
- <div className={`flipper ${activeIndex === index ? 'flipped' : ''}`}>
-  
-  {/* Front side */}
-  <div className="front">
-    <img
-      src={event.imgSrc}
-      alt={event.title}
-      className="event-image"
-    />
-  </div>
-
-  {/* Back side */}
-  <div className="back">
-    <div className="event-description">
-      <div className="scrolling-text" key={activeIndex === index ? `scroll-${index}` : `idle-${index}`}>
-          <p className="scroll-text-scroll">{event.description}</p>
-  <p className="scroll-text-static">{event.description}</p>
-      </div>
-    </div>
-  </div>
-
-</div>
-
+              <div className={`flipper ${activeIndex === index ? 'flipped' : ''}`}>
+                <div className='front'>
+                  <img src={event.imgSrc} alt={event.title} className='event-image' />
+                </div>
+                <div className='back'>
+                  <div className='event-description'>
+                    <div className='scroll-wrapper'>
+                      <div
+                        className='scroll-content'
+                        ref={(el) => (scrollRefs.current[index] = el)}
+                      >
+                        {event.description}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-                <div className="event-title">
-      <p>{event.title}</p>
-    </div>
+            <div className='event-title'>
+              <p>{event.title}</p>
+            </div>
           </div>
         ))}
       </div>
