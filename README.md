@@ -14,6 +14,7 @@
 
 ###  Backend Setup (Django)
    ```bash
+there is a virtual environment called venv maybe activate it if you want
    cd Backend
    python manage.py makemigrations 
    python manage.py makemigrations Authentication Mentors Registrations 
