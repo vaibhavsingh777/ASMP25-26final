@@ -141,7 +141,7 @@ function Register() {
   const handleRegistration = async () => {
   const userData = {
     fullname: name,
-    ldap: emailId + '@iitb.ac.in',
+    ldap: emailId.includes('@') ? emailId : emailId + '@iitb.ac.in',
     roll: rollNumber,
     dept: department,
     degree: degree,

@@ -16,7 +16,8 @@ const UseSignup = () => {
       const csrfToken = csrfTokenMatch ? csrfTokenMatch[1] : "DUMMY_CSRF_TOKEN";
 
       const response = await fetch(
-        "https://asmp.sarc-iitb.org/api/authentication/create-user/",
+        // "https://asmp.sarc-iitb.org/api/authentication/create-user/",
+        "http://127.0.0.1:8000/api/authentication/create-user/",
         {
           method: "POST",
           headers: {

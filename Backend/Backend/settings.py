@@ -322,31 +322,31 @@ STATIC_URL = "django_static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'INFO',
-            'class': 'logging.FileHandler',
-            'filename': 'django.log',
-        },
-    },
-    'loggers': {
-        '': {
-            'handlers': ['file'],
-            'level': 'INFO',
-            'propagate': True,
-        },
-        'apscheduler': {
-            'handlers': ['file'],
-            'level': 'WARNING',
-            'propagate': False,
-        },
-        'apscheduler.executors.default': {
-            'handlers': ['file'],
-            'level': 'ERROR',  # Suppress warnings like "Job ... no longer exists!"
-            'propagate': False,
-        },
-    },
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'file': {
+#             'level': 'INFO',
+#             'class': 'logging.FileHandler',
+#             'filename': 'django.log',
+#         },
+#     },
+#     'loggers': {
+#         '': {
+#             'handlers': ['file'],
+#             'level': 'INFO',
+#             'propagate': True,
+#         },
+#         'apscheduler': {
+#             'handlers': ['file'],
+#             'level': 'WARNING',
+#             'propagate': False,
+#         },
+#         'apscheduler.executors.default': {
+#             'handlers': ['file'],
+#             'level': 'ERROR',  # Suppress warnings like "Job ... no longer exists!"
+#             'propagate': False,
+#         },
+#     },
+# }
