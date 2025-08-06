@@ -16,7 +16,7 @@ const testimonials = [
     name: "Harshil Khatri",
     image: img1,
     feedback:
-      "ASMP paired me with an exceptional mentor whose humble approach and industry insights have been invaluable. His support, from college to startup plans, has boosted my confidence. I'm grateful to the Student Alumni Relations Cell for connecting me with a mentor who has significantly shaped my future.",
+      "When I signed up for ASMP, I had no idea what to expect—but it turned out to be incredible. I was lucky to be mentored by Gagandeep Makker, who not only shared his expertise but also his inspiring journey. Visiting the Pilgrim office and the insightful sessions he organized gave me a real glimpse into the industry. I’ve learned so much and feel like I’ve gained a mentor for life. Truly grateful for this experience.",
   },
   {
     name: "Dhruv Garg",

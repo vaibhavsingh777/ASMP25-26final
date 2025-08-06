@@ -28,6 +28,7 @@ import image21 from '../../assets/images/vaibhav.png';
 import image22 from '../../assets/images/rutika.png';
 import image23 from '../../assets/images/tarun.png';
 import image24 from '../../assets/images/ctm6.png';
+import CursorAnimation from '../CursorAnimation';
 
 const Team = () => {
   const teamData = {
@@ -152,38 +153,41 @@ const Team = () => {
   );
 
   return (
-    <div className="team-members">
-      <h1 className="headingg">SARC TEAM 2024-25</h1>
+    <>
+      <CursorAnimation />
+      <div className="team-members">
+        <h1 className="headingg">SARC TEAM 2024-25</h1>
 
-      <h2 className="head2">OVERALL COORDINATOR</h2>
-      <div className="team-grid-single">
-        {renderMember(teamData.overallCoordinator, true)}
-      </div>
-
-      {teamData.webTeams.map((webTeam, teamIndex) => (
-        <div key={`web-team-${teamIndex}`}>
-          <h1 className="headingg">{webTeam.title}</h1>
-
-          <h2 className="head2">CORE TEAM MEMBERS</h2>
-          <div className="team-grid-core">
-            {webTeam.coreMembers.map((member, index) => (
-              <React.Fragment key={`core-${teamIndex}-${index}`}>
-                {renderMember(member)}
-              </React.Fragment>
-            ))}
-          </div>
-
-          <h3 className="sub-head">COORDINATORS</h3>
-          <div className="team-grid-core">
-            {webTeam.coordinators.map((member, index) => (
-              <React.Fragment key={`coord-${teamIndex}-${index}`}>
-                {renderMember(member)}
-              </React.Fragment>
-            ))}
-          </div>
+        <h2 className="head2">OVERALL COORDINATOR</h2>
+        <div className="team-grid-single">
+          {renderMember(teamData.overallCoordinator, true)}
         </div>
-      ))}
-    </div>
+
+        {teamData.webTeams.map((webTeam, teamIndex) => (
+          <div key={`web-team-${teamIndex}`}>
+            <h1 className="headingg">{webTeam.title}</h1>
+
+            <h2 className="head2">CORE TEAM MEMBERS</h2>
+            <div className="team-grid-core">
+              {webTeam.coreMembers.map((member, index) => (
+                <React.Fragment key={`core-${teamIndex}-${index}`}>
+                  {renderMember(member)}
+                </React.Fragment>
+              ))}
+            </div>
+
+            <h3 className="sub-head">COORDINATORS</h3>
+            <div className="team-grid-core">
+              {webTeam.coordinators.map((member, index) => (
+                <React.Fragment key={`coord-${teamIndex}-${index}`}>
+                  {renderMember(member)}
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 

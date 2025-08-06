@@ -26,7 +26,7 @@ function Login() {
 
   const handleLogin = () => {
     const userData = {
-      username: emailId.trim().toLowerCase(),
+      ldap: emailId.trim().toLowerCase(),
       password: password.trim(),
     };
 

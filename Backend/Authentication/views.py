@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import UserSerializer, ProfileSerializer, CustomTokenObtainPairSerializer
+from .serializers import UserSerializer, ProfileSerializer
 from .models import User, Profile, Token
 from django.shortcuts import render, redirect
 from email.mime.multipart import MIMEMultipart
