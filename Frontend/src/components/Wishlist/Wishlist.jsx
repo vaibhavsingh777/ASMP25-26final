@@ -10,298 +10,310 @@ import UseDeleteFromWishlist from "../../hooks/useDeleteFromWishlist";
 import styled from "styled-components";
 import "./Card.css";
 import Wishlist_MentorCard from "./Wishlist_MentorCards";
+import { Link } from "react-router-dom";
 
 export default function Wishlist(props) {
-  const [profile, setProfile] = useState({
-    pref1: "",
-    pref2: "",
-    pref3: "",
-    pref4: "",
-    pref5: "",
-  });
+  // const [profile, setProfile] = useState({
+  //   pref1: "",
+  //   pref2: "",
+  //   pref3: "",
+  //   pref4: "",
+  //   pref5: "",
+  // });
 
-  const [check, setCheck] = useState(false);
-  const [showError, setShowError] = useState(null);
+  // const [check, setCheck] = useState(false);
+  // const [showError, setShowError] = useState(null);
+  // const [blacklistedMentors, setBlacklistedMentors] = useState([]);
   // const [errorBlacklistedMentors, setErrorBlacklistedMentors] = useState(null);
-  const [same, setSame] = useState(null);
+  // const [same, setSame] = useState(null);
   const { fetchMentors, setError, loading, error, mentors, setMentors } = UseFetchWishlist();
   const { deleteMentor } = UseDeleteFromWishlist();
-  const { registerMentors, error: registerError, success } = UseRegisterMentors(props);
-  // const [blacklistedMentors, setBlacklistedMentors] = useState([]);
+  const {
+    registerMentors,
+    error: registerError,
+    success,
+  } = UseRegisterMentors(props);
 
-  const handleInputChange = (index, event) => {
-    const { value } = event.target;
-    setProfile((prevProfile) => ({
-      ...prevProfile,
-      [`pref${index + 1}`]: value,
-    }));
-  };
+  // const handleInputChange = (index, event) => {
+  //   const { value } = event.target;
+  //   setProfile((prevProfile) => ({
+  //     ...prevProfile,
+  //     [`pref${index + 1}`]: value,
+  //   }));
+  // };
+
+  // const clearInput = (index) => {
+  //   setProfile((prevProfile) => ({
+  //     ...prevProfile,
+  //     [`pref${index + 1}`]: "",
+  //   }));
+  // };
 
   // useEffect(() => {
   //   const blacklisted = mentors.filter(mentor => !mentor.should_show).map(mentor => mentor.id);
   //   setBlacklistedMentors(blacklisted);
   // }, [mentors]);
 
-  useEffect(() => {
-    if (
-      profile.pref1.length > 0 &&
-      profile.pref2.length > 0 &&
-      profile.pref3.length > 0 &&
-      profile.pref4.length > 0 &&
-      profile.pref5.length > 0
-    ) {
-      setCheck(true);
-    } else {
-      setCheck(false);
-    }
+  // useEffect(() => {
+  //   if (
+  //     profile.pref1.length > 0 &&
+  //     profile.pref2.length > 0 &&
+  //     profile.pref3.length > 0 &&
+  //     profile.pref4.length > 0 &&
+  //     profile.pref5.length > 0
+  //   ) {
+  //     setCheck(true);
+  //   } else {
+  //     setCheck(false);
+  //   }
 
-    if (
-      profile.pref5.length !== 0 &&
-      profile.pref1.length !== 0 &&
-      profile.pref2.length !== 0 &&
-      profile.pref3.length !== 0 &&
-      profile.pref4.length !== 0 &&
-      (profile.pref1 == profile.pref2 ||
-        profile.pref1 == profile.pref3 ||
-        profile.pref1 == profile.pref4 ||
-        profile.pref1 == profile.pref5 ||
-        profile.pref2 == profile.pref3 ||
-        profile.pref2 == profile.pref4 ||
-        profile.pref2 == profile.pref5 ||
-        profile.pref3 == profile.pref4 ||
-        profile.pref3 == profile.pref5 ||
-        profile.pref4 == profile.pref5)
-    ) {
-      setSame("Please enter different preferences");
-      setCheck(false);
-    } else {
-      setSame(null);
-      if (
-        profile.pref1.length > 0 &&
-        profile.pref2.length > 0 &&
-        profile.pref3.length > 0 &&
-        profile.pref4.length > 0 &&
-        profile.pref5.length > 0
-      ) {
-        setCheck(true);
-      }
-    }
+  //   if (
+  //     profile.pref5.length !== 0 &&
+  //     profile.pref1.length !== 0 &&
+  //     profile.pref2.length !== 0 &&
+  //     profile.pref3.length !== 0 &&
+  //     profile.pref4.length !== 0 &&
+  //     (profile.pref1 == profile.pref2 ||
+  //       profile.pref1 == profile.pref3 ||
+  //       profile.pref1 == profile.pref4 ||
+  //       profile.pref1 == profile.pref5 ||
+  //       profile.pref2 == profile.pref3 ||
+  //       profile.pref2 == profile.pref4 ||
+  //       profile.pref2 == profile.pref5 ||
+  //       profile.pref3 == profile.pref4 ||
+  //       profile.pref3 == profile.pref5 ||
+  //       profile.pref4 == profile.pref5)
+  //   ) {
+  //     setSame("Please enter different preferences");
+  //     setCheck(false);
+  //   } else {
+  //     setSame(null);
+  //     if (
+  //       profile.pref1.length > 0 &&
+  //       profile.pref2.length > 0 &&
+  //       profile.pref3.length > 0 &&
+  //       profile.pref4.length > 0 &&
+  //       profile.pref5.length > 0
+  //     ) {
+  //       setCheck(true);
+  //     }
+  //   }
 
-    if (
-      profile.pref1.length > 0 &&
-      profile.pref2.length > 0 &&
-      profile.pref3.length > 0 &&
-      profile.pref4.length > 0 &&
-      profile.pref5.length > 0
-    ) {
-      setShowError(null);
-    } else {
-      setShowError("Please enter all preferences");
-    }
+  //   if (
+  //     profile.pref1.length > 0 &&
+  //     profile.pref2.length > 0 &&
+  //     profile.pref3.length > 0 &&
+  //     profile.pref4.length > 0 &&
+  //     profile.pref5.length > 0
+  //   ) {
+  //     setShowError(null);
+  //   } else {
+  //     setShowError("Please enter all preferences");
+  //   }
 
-    // const blacklisted = mentors.filter(mentor => !mentor.should_show).map(mentor => mentor.id);
-    // const isBlacklisted = (pref) => blacklisted.includes(pref);
-    // console.log(isBlacklisted(profile.pref1))
-    // console.log(blacklisted)
-    // console.log(mentors)
+  //   // const blacklisted = mentors.filter(mentor => !mentor.should_show).map(mentor => mentor.id);
+  //   // const isBlacklisted = (pref) => blacklisted.includes(pref);
+  //   // console.log(isBlacklisted(profile.pref1))
+  //   // console.log(blacklisted)
+  //   // console.log(mentors)
 
-    // if (isBlacklisted(profile.pref1) ||
-    //     isBlacklisted(profile.pref2) || 
-    //     isBlacklisted(profile.pref3) ||
-    //     isBlacklisted(profile.pref4) || 
-    //     isBlacklisted(profile.pref5)) {
-    //   // setErrorBlacklistedMentors("The mentor is blacklisted, please enter a different mentor");
-    //   console.log("one mentor is blacklisted")
-    // } else {
-    //   setErrorBlacklistedMentors(null);
-    // }
-  }, [
-    profile.pref1,
-    profile.pref2,
-    profile.pref3,
-    profile.pref4,
-    profile.pref5,
-    profile,
-    // blacklistedMentors,
-  ]);
+  //   // if (isBlacklisted(profile.pref1) ||
+  //   //     isBlacklisted(profile.pref2) ||
+  //   //     isBlacklisted(profile.pref3) ||
+  //   //     isBlacklisted(profile.pref4) ||
+  //   //     isBlacklisted(profile.pref5)) {
+  //   //   // setErrorBlacklistedMentors("The mentor is blacklisted, please enter a different mentor");
+  //   //   console.log("one mentor is blacklisted")
+  //   // } else {
+  //   //   setErrorBlacklistedMentors(null);
+  //   // }
+  // }, [
+  //   profile.pref1,
+  //   profile.pref2,
+  //   profile.pref3,
+  //   profile.pref4,
+  //   profile.pref5,
+  //   profile,
+  //   // blacklistedMentors,
+  // ]);
 
-  useEffect(() => {
-    const { to, set } = gsap;
+  // useEffect(() => {
+  //   const { to, set } = gsap;
 
-    function delay(fn, ms) {
-      let timer = 0;
-      return function (...args) {
-        clearTimeout(timer);
-        timer = setTimeout(fn.bind(this, ...args), ms || 0);
-      };
-    }
+  //   function delay(fn, ms) {
+  //     let timer = 0;
+  //     return function (...args) {
+  //       clearTimeout(timer);
+  //       timer = setTimeout(fn.bind(this, ...args), ms || 0);
+  //     };
+  //   }
 
-    const getPoint = (point, i, a, smoothing) => {
-      const cp = (current, previous, next, reverse) => {
-        const p = previous || current,
-          n = next || current,
-          o = {
-            length: Math.sqrt(
-              Math.pow(n[0] - p[0], 2) + Math.pow(n[1] - p[1], 2)
-            ),
-            angle: Math.atan2(n[1] - p[1], n[0] - p[0]),
-          },
-          angle = o.angle + (reverse ? Math.PI : 0),
-          length = o.length * smoothing;
-        return [
-          current[0] + Math.cos(angle) * length,
-          current[1] + Math.sin(angle) * length,
-        ];
-      };
+  //   const getPoint = (point, i, a, smoothing) => {
+  //     const cp = (current, previous, next, reverse) => {
+  //       const p = previous || current,
+  //         n = next || current,
+  //         o = {
+  //           length: Math.sqrt(
+  //             Math.pow(n[0] - p[0], 2) + Math.pow(n[1] - p[1], 2)
+  //           ),
+  //           angle: Math.atan2(n[1] - p[1], n[0] - p[0]),
+  //         },
+  //         angle = o.angle + (reverse ? Math.PI : 0),
+  //         length = o.length * smoothing;
+  //       return [
+  //         current[0] + Math.cos(angle) * length,
+  //         current[1] + Math.sin(angle) * length,
+  //       ];
+  //     };
 
-      const cps = cp(a[i - 1], a[i - 2], point, false),
-        cpe = cp(point, a[i - 1], a[i + 1], true);
-      return `C ${cps[0]},${cps[1]} ${cpe[0]},${cpe[1]} ${point[0]},${point[1]}`;
-    };
+  //     const cps = cp(a[i - 1], a[i - 2], point, false),
+  //       cpe = cp(point, a[i - 1], a[i + 1], true);
+  //     return `C ${cps[0]},${cps[1]} ${cpe[0]},${cpe[1]} ${point[0]},${point[1]}`;
+  //   };
 
-    const getPath = (x, smoothing) => {
-      return [
-        [2, 2],
-        [12 - x, 12 + x],
-        [22, 22],
-      ].reduce(
-        (acc, point, i, a) =>
-          i === 0
-            ? `M ${point[0]},${point[1]}`
-            : `${acc} ${getPoint(point, i, a, smoothing)}`,
-        ""
-      );
-    };
+  //   const getPath = (x, smoothing) => {
+  //     return [
+  //       [2, 2],
+  //       [12 - x, 12 + x],
+  //       [22, 22],
+  //     ].reduce(
+  //       (acc, point, i, a) =>
+  //         i === 0
+  //           ? `M ${point[0]},${point[1]}`
+  //           : `${acc} ${getPoint(point, i, a, smoothing)}`,
+  //       ""
+  //     );
+  //   };
 
-    document.querySelectorAll(".input").forEach((elem) => {
-      const clear = elem.querySelector(".clear"),
-        input = elem.querySelector("input"),
-        { classList } = elem,
-        svgLine = clear.querySelector(".line"),
-        svgLineProxy = new Proxy(
-          {
-            x: null,
-          },
-          {
-            set(target, key, value) {
-              target[key] = value;
-              if (target.x !== null) {
-                svgLine.setAttribute("d", getPath(target.x, 0.1925));
-              }
-              return true;
-            },
-            get(target, key) {
-              return target[key];
-            },
-          }
-        );
+  //   document.querySelectorAll(".input").forEach((elem) => {
+  //     const clear = elem.querySelector(".clear"),
+  //       input = elem.querySelector("input"),
+  //       { classList } = elem,
+  //       svgLine = clear.querySelector(".line"),
+  //       svgLineProxy = new Proxy(
+  //         {
+  //           x: null,
+  //         },
+  //         {
+  //           set(target, key, value) {
+  //             target[key] = value;
+  //             if (target.x !== null) {
+  //               svgLine.setAttribute("d", getPath(target.x, 0.1925));
+  //             }
+  //             return true;
+  //           },
+  //           get(target, key) {
+  //             return target[key];
+  //           },
+  //         }
+  //       );
 
-      svgLineProxy.x = 0;
+  //     svgLineProxy.x = 0;
 
-      input.addEventListener(
-        "input",
-        delay(() => {
-          const bool = input.value.length;
-          to(elem, {
-            "--clear-scale": bool ? 1 : 0,
-            duration: bool ? 0.5 : 0.15,
-            ease: bool ? "elastic.out(1, 0.7)" : "none",
-          });
-          to(elem, {
-            "--clear-opacity": bool ? 1 : 0,
-            duration: 0.15,
-          });
-        }, 250)
-      );
+  //     input.addEventListener(
+  //       "input",
+  //       delay(() => {
+  //         const bool = input.value.length;
+  //         to(elem, {
+  //           "--clear-scale": bool ? 1 : 0,
+  //           duration: bool ? 0.5 : 0.15,
+  //           ease: bool ? "elastic.out(1, 0.7)" : "none",
+  //         });
+  //         to(elem, {
+  //           "--clear-opacity": bool ? 1 : 0,
+  //           duration: 0.15,
+  //         });
+  //       }, 250)
+  //     );
 
-      clear.addEventListener("click", () => {
-        classList.add("clearing");
-        set(elem, {
-          "--clear-swipe-left": (input.offsetWidth - 16) * -1 + "px",
-        });
-        to(elem, {
-          keyframes: [
-            {
-              "--clear-rotate": "45deg",
-              duration: 0.25,
-            },
-            {
-              "--clear-arrow-x": "2px",
-              "--clear-arrow-y": "-2px",
-              duration: 0.15,
-            },
-            {
-              "--clear-arrow-x": "-3px",
-              "--clear-arrow-y": "3px",
-              "--clear-swipe": "-3px",
-              duration: 0.15,
-              onStart() {
-                to(svgLineProxy, {
-                  x: 3,
-                  duration: 0.1,
-                  delay: 0.05,
-                });
-              },
-            },
-            {
-              "--clear-swipe-x": 1,
-              "--clear-x": input.offsetWidth * -1 + "px",
-              duration: 0.45,
-              onComplete() {
-                input.value = "";
-                input.focus();
-                to(elem, {
-                  "--clear-arrow-offset": "4px",
-                  "--clear-arrow-offset-second": "4px",
-                  "--clear-line-array": "8.5px",
-                  "--clear-line-offset": "27px",
-                  "--clear-long-offset": "24px",
-                  "--clear-rotate": "0deg",
-                  "--clear-arrow-o": 1,
-                  duration: 0,
-                  delay: 0.7,
-                  onStart() {
-                    classList.remove("clearing");
-                  },
-                });
-                to(elem, {
-                  "--clear-opacity": 0,
-                  duration: 0.2,
-                  delay: 0.55,
-                });
-                to(elem, {
-                  "--clear-arrow-o": 0,
-                  "--clear-arrow-x": "0px",
-                  "--clear-arrow-y": "0px",
-                  "--clear-swipe": "0px",
-                  duration: 0.15,
-                });
-                to(svgLineProxy, {
-                  x: 0,
-                  duration: 0.45,
-                  ease: "elastic.out(1, 0.75)",
-                });
-              },
-            },
-            {
-              "--clear-swipe-x": 0,
-              "--clear-x": "0px",
-              duration: 0.4,
-              delay: 0.35,
-            },
-          ],
-        });
-        to(elem, {
-          "--clear-arrow-offset": "0px",
-          "--clear-arrow-offset-second": "8px",
-          "--clear-line-array": "28.5px",
-          "--clear-line-offset": "57px",
-          "--clear-long-offset": "17px",
-          duration: 0.2,
-        });
-      });
-    });
-  }, []);
+  //     clear.addEventListener("click", () => {
+  //       classList.add("clearing");
+  //       set(elem, {
+  //         "--clear-swipe-left": (input.offsetWidth - 16) * -1 + "px",
+  //       });
+  //       to(elem, {
+  //         keyframes: [
+  //           {
+  //             "--clear-rotate": "45deg",
+  //             duration: 0.25,
+  //           },
+  //           {
+  //             "--clear-arrow-x": "2px",
+  //             "--clear-arrow-y": "-2px",
+  //             duration: 0.15,
+  //           },
+  //           {
+  //             "--clear-arrow-x": "-3px",
+  //             "--clear-arrow-y": "3px",
+  //             "--clear-swipe": "-3px",
+  //             duration: 0.15,
+  //             onStart() {
+  //               to(svgLineProxy, {
+  //                 x: 3,
+  //                 duration: 0.1,
+  //                 delay: 0.05,
+  //               });
+  //             },
+  //           },
+  //           {
+  //             "--clear-swipe-x": 1,
+  //             "--clear-x": input.offsetWidth * -1 + "px",
+  //             duration: 0.45,
+  //             onComplete() {
+  //               input.value = "";
+  //               input.focus();
+  //               to(elem, {
+  //                 "--clear-arrow-offset": "4px",
+  //                 "--clear-arrow-offset-second": "4px",
+  //                 "--clear-line-array": "8.5px",
+  //                 "--clear-line-offset": "27px",
+  //                 "--clear-long-offset": "24px",
+  //                 "--clear-rotate": "0deg",
+  //                 "--clear-arrow-o": 1,
+  //                 duration: 0,
+  //                 delay: 0.7,
+  //                 onStart() {
+  //                   classList.remove("clearing");
+  //                 },
+  //               });
+  //               to(elem, {
+  //                 "--clear-opacity": 0,
+  //                 duration: 0.2,
+  //                 delay: 0.55,
+  //               });
+  //               to(elem, {
+  //                 "--clear-arrow-o": 0,
+  //                 "--clear-arrow-x": "0px",
+  //                 "--clear-arrow-y": "0px",
+  //                 "--clear-swipe": "0px",
+  //                 duration: 0.15,
+  //               });
+  //               to(svgLineProxy, {
+  //                 x: 0,
+  //                 duration: 0.45,
+  //                 ease: "elastic.out(1, 0.75)",
+  //               });
+  //             },
+  //           },
+  //           {
+  //             "--clear-swipe-x": 0,
+  //             "--clear-x": "0px",
+  //             duration: 0.4,
+  //             delay: 0.35,
+  //           },
+  //         ],
+  //       });
+  //       to(elem, {
+  //         "--clear-arrow-offset": "0px",
+  //         "--clear-arrow-offset-second": "8px",
+  //         "--clear-line-array": "28.5px",
+  //         "--clear-line-offset": "57px",
+  //         "--clear-long-offset": "17px",
+  //         duration: 0.2,
+  //       });
+  //     });
+  //   });
+  // }, []);
 
   const styles = {
     "@media (max-width: 768px)": {
@@ -399,7 +411,7 @@ export default function Wishlist(props) {
       fontFamily: "Fraunces, serif",
       fontSize: "2vw",
       color: "white",
-      background: "rgba(48, 82, 52, 0.5)",
+      background: "#A742A4",
       boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.67)",
       backdropFilter: "blur(3px)",
       WebkitBackdropFilter: "blur(9px)",
@@ -409,17 +421,9 @@ export default function Wishlist(props) {
     },
   };
 
-  const clearInput = (index) => {
-    setProfile((prevProfile) => ({
-      ...prevProfile,
-      [`pref${index + 1}`]: "",
-    }));
-  };
-
   // async function handleSubmit() {
   //   try {
-  //     // const accessToken = localStorage.getItem("accessToken");
-  //     const accessToken = "184b1568-7e1b-4a92-a811-02e91f496510";
+  //     const accessToken = localStorage.getItem("accessToken");
   //     profile.accessToken = accessToken;
 
   //     const swalWithBootstrapButtons = Swal.mixin({
@@ -455,47 +459,47 @@ export default function Wishlist(props) {
   //     console.log(err);
   //   }
   // }
-  async function handleSubmit() {
-    try {
-      // const accessToken = "82cf3f73-f995-4d72-92bb-7c158a38232a";
-      const accessToken = localStorage.getItem("accessToken");
-      profile.accessToken = accessToken;
+  // async function handleSubmit() {
+  //   try {
+  //     // const accessToken = "82cf3f73-f995-4d72-92bb-7c158a38232a";
+  //     const accessToken = localStorage.getItem("accessToken");
+  //     profile.accessToken = accessToken;
 
-      const swalWithBootstrapButtons = Swal.mixin({
-        customClass: {
-          confirmButton: "btn btn-success",
-          cancelButton: "btn btn-danger",
-        },
-        buttonsStyling: false,
-      });
+  //     const swalWithBootstrapButtons = Swal.mixin({
+  //       customClass: {
+  //         confirmButton: "btn btn-success",
+  //         cancelButton: "btn btn-danger",
+  //       },
+  //       buttonsStyling: false,
+  //     });
 
-      swalWithBootstrapButtons
-        .fire({
-          title: "Are you sure?",
-          text: "You can register only once",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonText: "Yes register!",
-          cancelButtonText: "No, cancel!",
-        })
-        .then((result) => {
-          if (result.isConfirmed) {
-            registerMentors(profile);
-            if (success) {
-              console.log("Registered successfully");
-              Swal.fire(
-                "Registered!",
-                "You have successfully registered your preferences.",
-                "success"
-              );
-            }
-          }
-        });
-    } catch (err) {
-      console.log("Error registering mentors");
-      console.log(err);
-    }
-  }
+  //     swalWithBootstrapButtons
+  //       .fire({
+  //         title: "Are you sure?",
+  //         text: "You can register only once",
+  //         icon: "warning",
+  //         showCancelButton: true,
+  //         confirmButtonText: "Yes register!",
+  //         cancelButtonText: "No, cancel!",
+  //       })
+  //       .then((result) => {
+  //         if (result.isConfirmed) {
+  //           registerMentors(profile);
+  //           if (success) {
+  //             console.log("Registered successfully");
+  //             Swal.fire(
+  //               "Registered!",
+  //               "You have successfully registered your preferences.",
+  //               "success"
+  //             );
+  //           }
+  //         }
+  //       });
+  //   } catch (err) {
+  //     console.log("Error registering mentors");
+  //     console.log(err);
+  //   }
+  // }
 
   async function deleteFromWishlist(id) {
     Swal.fire({
@@ -548,7 +552,6 @@ export default function Wishlist(props) {
         <div style={{ height: "10vh" }}></div>
         <div className="wishlist-headings-1">Wishlist</div>
 
-        {/* <Wishlist_Mentor /> */}
         <div className="wishlist-mentor-cards-ka-div">
           {mentors && mentors.length > 0 ? (
             mentors.map((mentor, index) => (
@@ -680,7 +683,7 @@ export default function Wishlist(props) {
         </div>
         */}
 
-        <div style={styles.textCenter}>
+        {/* <div style={styles.textCenter}>
           {showError && <p style={{ color: "white" }}>{showError}</p>}
           {registerError && <p style={{ color: "white" }}>{registerError}</p>}
           {same && <p style={{ color: "white" }}>{same}</p>}
@@ -692,6 +695,13 @@ export default function Wishlist(props) {
           >
             Register
           </button>
+        </div> */}
+        <div style={styles.textCenter}>
+            <Link to="/profile">
+              <button className="submit-button" style={styles.submitButton}>
+              Proceed to Register
+              </button>
+            </Link>
         </div>
       </div>
     </>

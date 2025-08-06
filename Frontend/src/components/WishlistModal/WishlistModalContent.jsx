@@ -59,6 +59,7 @@ const MentorCard = ({ mentor, onSelect, onDelete }) => (
       >
         Select
       </button>
+
       <button
         onClick={() => onDelete(mentor.id)}
         style={{
@@ -80,8 +81,7 @@ const MentorCard = ({ mentor, onSelect, onDelete }) => (
 );
 
 export default function WishlistModalContent({ onSelect }) {
-  const { fetchMentors, loading, error, mentors, setMentors } =
-    UseFetchWishlist();
+  const { fetchMentors, loading, error, mentors, setMentors } = UseFetchWishlist();
   const { deleteMentor } = UseDeleteFromWishlist();
 
   useEffect(() => {
@@ -138,8 +138,8 @@ export default function WishlistModalContent({ onSelect }) {
     );
 
   return (
-    <div style={{ overflowY: "auto", maxHeight: "480px", padding: "0 6px" }}>
-      <h2 style={{ textAlign: "center", marginBottom: "8px" }}>My Wishlist</h2>
+    <div style={{ overflowY: "auto", padding: "0 0px" }}>
+      <h2 style={{ color: "#A742A4", textAlign: "center", marginBottom: "8px" }}>My Wishlist</h2>
       <div
         style={{
           display: "flex",

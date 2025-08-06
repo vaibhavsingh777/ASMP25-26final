@@ -21,8 +21,8 @@ export default function Homee() {
 
   return (
     <>
+      <CursorAnimation />
       <div className='home-background-image'>
-        <CursorAnimation />
         <div  
           style={{
             position: "fixed",
@@ -37,7 +37,6 @@ export default function Homee() {
           <Lottie
             animationData={animationData}
             onClick={() => {
-              console.log("Scroll button clicked!");
               scrollAnimation();
             }}
           />

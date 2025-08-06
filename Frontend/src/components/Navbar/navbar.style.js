@@ -106,7 +106,6 @@ export const RightContainer = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 2rem;
 
   @media (max-width: 600px){
     width: 12%;

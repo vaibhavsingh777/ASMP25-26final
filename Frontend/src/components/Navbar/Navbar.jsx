@@ -1,5 +1,6 @@
   import React, { useState, useEffect } from "react";
   import { Spin as Hamburger } from "hamburger-react";
+  import Checkbox from "./HamburgerIcon";
   import { useNavigate, useLocation } from "react-router-dom";
   import logo from "../../assets/images/Sarc.png";
   import {
@@ -311,7 +312,8 @@
             </MiddleInnerContainer>
           </MiddleContainer>
           <RightContainer style={{ zIndex: "10000" }}>
-            <Hamburger toggled={isOpen} toggle={setOpen} size={35} />
+            {/* <Hamburger toggled={isOpen} toggle={setOpen} size={35} /> */}
+            <Checkbox isOpen={isOpen} toggleOpen={() => setOpen(!isOpen)} />
           </RightContainer>
         </NavbarInnerContainer>
 

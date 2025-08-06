@@ -13,6 +13,10 @@
   position: relative;
 }
 
+.profile input::placeholder {
+  color: rgb(50, 50, 50) !important;
+}
+
 /* For purple overlays etc., you can use utility classes in JSX (see previous messages) */
 
 .profile h1 {
