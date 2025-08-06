@@ -1,0 +1,52 @@
+# === Global ignores ===
+*.log
+*.py[cod]
+__pycache__/
+*.sqlite3
+
+# === Python / Django ===
+.env
+*.env
+*.db
+db.sqlite3
+*.pyc
+*.pyo
+*.pyd
+*.coverage
+*.DS_Store
+*.migrations/
+*.pot
+*.mo
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+*$py.class
+
+# Django media/static files (if generated)
+media/
+staticfiles/
+
+# Django log files
+django.log
+
+# === Node / React ===
+node_modules/
+build/
+dist/
+.cache/
+.yarn/
+.pnp.*
+.npm/
+
+# Dependency lock files (choose only one based on your package manager)
+package-lock.json
+yarn.lock
+
+# Environment settings
+.env.development
+.env.production
+.env.local
+.env.*.local
+
+# === VSCode ===
+.vscode/
