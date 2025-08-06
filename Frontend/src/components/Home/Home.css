@@ -14,19 +14,25 @@
   background-color: black;
 }
 
+.home,
+.mainSection,
 .video {
-  width: 100%!important; 
+  position: relative;
+  width: 100vw !important; 
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
   height: auto;
   display: flex;
   align-items: center; 
   justify-content: center; 
   overflow: hidden;
-  border: solid 2px white;
+  /* border: solid 2px white; */
 }
 
 video {
-  width: 100%!important;
+  width: 100vw !important;
   height: auto; 
   object-fit: cover;
-  display: block!important;
+  display: block !important;
 }

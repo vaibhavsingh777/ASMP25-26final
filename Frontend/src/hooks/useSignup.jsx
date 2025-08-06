@@ -11,23 +11,21 @@ const UseSignup = () => {
     setSuccess(false);
 
     try {
-      // Get CSRF token from cookies (if needed, for same-origin Django)
-      const csrfTokenMatch = document.cookie.match(/csrftoken=([^;]+)/);
-      const csrfToken = csrfTokenMatch ? csrfTokenMatch[1] : "DUMMY_CSRF_TOKEN";
-
+      console.log("Sending userData:", userData);
       const response = await fetch(
-        "https://asmp.sarc-iitb.org/api/authentication/create-user/",
+        // "https://asmp.sarc-iitb.org/api/authentication/create/",
+        `http://127.0.0.1:8000/api/authentication/create/`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "X-CSRFToken": csrfToken, // optional, if backend requires
           },
           body: JSON.stringify(userData),
         }
       );
 
       const responseData = await response.json();
+      console.log("Response data:", responseData);
 
       if (response.status === 201) {
         setSuccess(true);
