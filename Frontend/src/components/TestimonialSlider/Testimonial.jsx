@@ -5,36 +5,35 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./swiper-custom.css";
-import img from "./img.png";
-import img4 from './shreyas[1].png'
-import img1 from './harshil[1].png'
-import img2 from './dhruv garg[1].png'
-import img3 from './jasmine[1].png'
+import img1 from './image1.jpg'
+import img2 from './image2.jpg'
+import img3 from './image3.jpg'
+import img4 from './image4.jpg'
 
 const testimonials = [
   {
-    name: "Harshil Khatri",
+    name: "Preksha PC",
     image: img1,
     feedback:
-      "When I signed up for ASMP, I had no idea what to expect—but it turned out to be incredible. I was lucky to be mentored by Gagandeep Makker, who not only shared his expertise but also his inspiring journey. Visiting the Pilgrim office and the insightful sessions he organized gave me a real glimpse into the industry. I’ve learned so much and feel like I’ve gained a mentor for life. Truly grateful for this experience.",
+      "When I signed up for ASMP, I had no idea what to expect—but it turned out to be incredible. My mentor not only shared his expertise but also his inspiring journey. Visiting the Pilgrim office and the insightful sessions he organized gave me a real glimpse into the industry. I've learned so much and feel like I've gained a mentor for life.",
   },
   {
-    name: "Dhruv Garg",
+    name: "Anuj Yadav",
     image: img2,
     feedback:
-      "ASMP connected me with an amazing mentor in analytics who helped me navigate my career path. Over the past year, he's guided me through my internship, provided data science resources, reviewed my resume, and supported me whenever I felt lost. Though we haven't met in person yet, I hope to soon. Thanks, SARC!",
+      "My ASMP mentorship was truly memorable. My mentor made the experience insightful and personal. He broke down complex ideas in finance and quant, tailored his advice to my interests, and constantly encouraged me to think deeper. His support felt more like a friendship than a formality, and it has left a lasting impact on my confidence.",
   },
   {
-    name: "Jasmine Multani",
+    name: "Kartik Padiya",
     image: img3,
     feedback:
-      "My ASMP mentor offered invaluable support and practical insights into consulting. He regularly checked on my progress and encouraged long-term career goals. His advice has greatly impacted my growth. I'm thankful to ASMP for connecting me with a mentor who's become a lifelong friend.",
+      "Having an ASMP mentor has been one of the most meaningful parts of my journey. My mentor was always supportive, offering honest guidance, whether it was career advice, project doubts, or just when I felt stuck. Over time, our bond grew from scheduled calls to spontaneous conversations. ASMP helped me build a truly valuable and lasting connection.",
   },
   {
-    name: "Shreyas Sinha",
+    name: "Aarya Gaikwad",
     image: img4,
     feedback:
-      "ASMP has been amazing, providing me with a mentor who's always there for advice and guidance. His support during the BCG Ideathon was invaluable, and despite his busy schedule, he made time to keep me on track. I'm grateful to ASMP for connecting me with a mentor who truly cares about my success."
+      "ASMP program was a game-changer for me. The experience with my mentor was incredibly helpful. He was approachable, quick to respond, and always offered clear, practical advice. Even in brief interactions, he made an effort to support and guide me. His mentorship played a meaningful role in my learning, and I'm truly grateful for it."
   },
 ];
 
@@ -179,9 +178,7 @@ const TestimonialSlider = () => {
 const styles = {
   testimonialItem: {
     height: "314px",
-
     width: "428px",
-
     margin: "0 auto",
     textAlign: "left",
     background: "linear-gradient(90deg, rgba(0, 0, 0, 0.58) 0%, rgba(89, 84, 84, 0.58) 43.5%, rgba(0, 0, 0, 0.58) 87.5%, rgba(0, 0, 0, 0.58) 100%)",

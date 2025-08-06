@@ -21,7 +21,6 @@ const About = () => {
         </button>
       </Link>
     </div>
-
   )
 }
 
