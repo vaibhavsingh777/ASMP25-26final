@@ -14,8 +14,6 @@ from Mentors.serializers import MentorSerializer
 
 
 class UserPreferencesView(APIView):
-    permission_classes = [IsAuthenticated]
-
     def get_user_from_request(self, request):
         """
         Helper to acquire authenticated user. Tries request.user, then fallback on accessToken param.
@@ -36,7 +34,7 @@ class UserPreferencesView(APIView):
     def get(self, request):
         user = self.get_user_from_request(request)
         if not user:
-            return Response({"error": "User not authenticated"}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response({"detail": "Authentication credentials were not provided."}, status=status.HTTP_403_FORBIDDEN)
         try:
             reg = Registration.objects.get(user=user)
         except Registration.DoesNotExist:
@@ -48,7 +46,7 @@ class UserPreferencesView(APIView):
     def patch(self, request):
         user = self.get_user_from_request(request)
         if not user:
-            return Response({"error": "User not authenticated"}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response({"detail": "Authentication credentials were not provided."}, status=status.HTTP_403_FORBIDDEN)
         try:
             reg = Registration.objects.get(user=user)
         except Registration.DoesNotExist:
@@ -170,7 +168,8 @@ class WishListAPIView(APIView):
             wishlist.save()
             return Response("Mentor removed from wishlist", status=status.HTTP_200_OK)
         except WishList.DoesNotExist:
-            return Response("Wishlist not found", status=status.HTTP_404_NOT_FOUND)
+            # If no wishlist exists, the mentor is not in it, so removal is successful
+            return Response("Mentor removed from wishlist", status=status.HTTP_200_OK)
         except Exception as e:
             print("Error updating wishlist:", e)
             return Response("Internal Server Error", status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -196,7 +195,8 @@ class WishListAPIView(APIView):
                 mentor['wishlisted'] = True
             return Response(mentors_data, status=status.HTTP_200_OK)
         except WishList.DoesNotExist:
-            return Response("Wishlist not found", status=status.HTTP_404_NOT_FOUND)
+            # Return empty array instead of 404 when no wishlist exists
+            return Response([], status=status.HTTP_200_OK)
         except Exception as e:
             print("Error fetching wishlist:", e)
             return Response("Internal Server Error", status=status.HTTP_500_INTERNAL_SERVER_ERROR)

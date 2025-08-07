@@ -34,7 +34,7 @@ const UseFetchWishlist = () => {
       if (response.status === 200) {
         setSuccess(true);
         setMentors(response.data);
-        console.log("response.data= ", response.data)
+        // console.log("response.data= ", response.data)
       } else {
         setError("Error fetching wishlist");
       }

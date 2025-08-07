@@ -124,7 +124,6 @@ const TestimonialSlider = () => {
                       minHeight: "200px",
                       width: "100%",
                       display: "flex",
-                      alignItems: "flex-start",
                       gap: "10px"
                     }}
                   >
@@ -160,6 +159,9 @@ const TestimonialSlider = () => {
                         color: "white",
                         fontFamily: "Fraunces, serif",
                         flex: 1,
+                        minWidth: "0",
+                        wordWrap: "break-word",
+                        overflowWrap: "break-word"
                       }}
                     >
                       {testimonial.feedback}
@@ -177,8 +179,10 @@ const TestimonialSlider = () => {
 
 const styles = {
   testimonialItem: {
-    height: "314px",
-    width: "428px",
+    height: "auto",
+    minHeight: "314px",
+    width: "100%",
+    maxWidth: "428px",
     margin: "0 auto",
     textAlign: "left",
     background: "linear-gradient(90deg, rgba(0, 0, 0, 0.58) 0%, rgba(89, 84, 84, 0.58) 43.5%, rgba(0, 0, 0, 0.58) 87.5%, rgba(0, 0, 0, 0.58) 100%)",

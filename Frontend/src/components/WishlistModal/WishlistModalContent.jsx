@@ -2,83 +2,7 @@ import React, { useEffect } from "react";
 import UseFetchWishlist from "../../hooks/useFetchWishlist";
 import UseDeleteFromWishlist from "../../hooks/useDeleteFromWishlist";
 import Swal from "sweetalert2";
-
-// MentorCard: always renders Select and Remove
-const MentorCard = ({ mentor, onSelect, onDelete }) => (
-  <div
-    style={{
-      width: "320px",
-      height: "280px",
-      background: "#932C92",
-      border: "3px solid #fff",
-      borderRadius: "18px",
-      marginBottom: "18px",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
-      boxShadow: "0px 0px 3px 7px #FFFFFF",
-      paddingBottom: "11px",
-    }}
-  >
-    <div
-      style={{
-        background: "#A742A4",
-        color: "#fff",
-        textAlign: "center",
-        fontSize: "17px",
-        borderRadius: "0 0 32px 32px",
-        padding: "28px 0 6px 0",
-      }}
-    >
-      <strong>{mentor.fullname || mentor.name}</strong>
-      <br />
-      {mentor.designation || mentor.work_profile || ""}
-    </div>
-    <div style={{ flexGrow: 1 }}></div>
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "10px",
-      }}
-    >
-      <button
-        onClick={() => onSelect(mentor)}
-        style={{
-          width: "90%",
-          background: "#A742A4",
-          color: "white",
-          fontWeight: "bold",
-          fontSize: "16px",
-          borderRadius: "6px",
-          padding: "7px 0 7px 0",
-          border: "none",
-          cursor: "pointer",
-        }}
-      >
-        Select
-      </button>
-
-      <button
-        onClick={() => onDelete(mentor.id)}
-        style={{
-          width: "90%",
-          background: "#8B1E8B",
-          color: "white",
-          fontWeight: "bold",
-          fontSize: "15px",
-          borderRadius: "6px",
-          padding: "7px 0 7px 0",
-          border: "none",
-          cursor: "pointer",
-        }}
-      >
-        Remove
-      </button>
-    </div>
-  </div>
-);
+import UnifiedMentorCard from "../UnifiedMentorCard";
 
 export default function WishlistModalContent({ onSelect }) {
   const { fetchMentors, loading, error, mentors, setMentors } = UseFetchWishlist();
@@ -148,11 +72,16 @@ export default function WishlistModalContent({ onSelect }) {
         }}
       >
         {mentors.map((mentor) => (
-          <MentorCard
+          <UnifiedMentorCard
             key={mentor.id}
             mentor={mentor}
-            onDelete={handleDelete}
+            mentors={mentors}
+            setMentors={setMentors}
+            mode="selection"
             onSelect={onSelect}
+            onDelete={handleDelete}
+            showAddButton={false}
+            showRemoveButton={true}
           />
         ))}
       </div>

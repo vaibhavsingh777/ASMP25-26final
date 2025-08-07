@@ -39,7 +39,7 @@ const UseFetchMentors = () => {
 
       if (response.status === 200) {
         setSuccess(true);
-        console.log(response.data);
+        // console.log(response.data);
         setMentors(response.data);
       } else {
         setError("Unexpected response status");
