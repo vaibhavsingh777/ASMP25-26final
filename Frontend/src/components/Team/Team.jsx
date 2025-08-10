@@ -71,8 +71,7 @@ const Team = () => {
             name: "Ridham Saxena",
             image: image16,
             instagram: "https://www.instagram.com/ridham.2006/",
-            linkedin:
-              "https://www.linkedin.com/in/ridham-saxena-5a1555318?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+            linkedin: "https://www.linkedin.com/in/ridham-saxena-5a1555318",
           },
           {
             name: "Srishti Poddar",
@@ -101,8 +100,7 @@ const Team = () => {
             name: "Arush Srivastava",
             image: image13,
             instagram: "https://www.instagram.com/itss.arushhh/",
-            linkedin:
-              "https://www.linkedin.com/in/arush-narayan-srivastav-001/",
+            linkedin: "https://www.linkedin.com/in/arush-narayan-srivastav-001/",
           },
           {
             name: "Khushi Yadav",
@@ -115,16 +113,14 @@ const Team = () => {
           {
             name: "Kapil Chhipa",
             image: image2,
-            instagram:
-              "https://www.instagram.com/kapi_lchhipa?igsh=M2ZsNHAyM2o4dDR4",
+            instagram: "https://www.instagram.com/kapi_lchhipa/",
             linkedin: "https://www.linkedin.com/in/kapil-chhipa-05a741330/",
           },
           {
             name: "Aditya Chaurasiya",
             image: image20,
             instagram: "https://www.instagram.com/adityachaurasiya.8807/",
-            linkedin:
-              "https://www.linkedin.com/in/aditya-chaurasiya-70785531b/",
+            linkedin: "https://www.linkedin.com/in/aditya-chaurasiya-70785531b/",
           },
           {
             name: "Vaibhav Singh",
@@ -136,21 +132,19 @@ const Team = () => {
             name: "Rutika Hake",
             image: image22,
             instagram:
-              "https://www.instagram.com/rutikahake?igsh=MXF2d3FxbTNpODEzaA==",
+              "https://www.instagram.com/rutikahake",
             linkedin: "https://www.linkedin.com/in/rutika-hake-990787322",
           },
           {
             name: "Tarun Kadam",
             image: image23,
-            instagram:
-              "https://www.instagram.com/tarunkadam06?igsh=MXd5MnNnbnk2anRkeg==",
+            instagram: "https://www.instagram.com/tarunkadam06",
             linkedin: "https://www.linkedin.com/in/tarun-kadam-657a44330",
           },
           {
             name: "Vanshika Nalamasa",
             image: image7,
-            instagram:
-              "https://www.instagram.com/vanshikazz0405?igsh=MXV1ZDdnYXZwaGwzNQ==",
+            instagram: "https://www.instagram.com/vanshikazz0405",
             linkedin: "https://www.linkedin.com/in/vanshika-nalamasa-04b6bb326",
           },
         ],
@@ -161,8 +155,7 @@ const Team = () => {
           {
             name: "Sarthak Hase",
             image: image17,
-            instagram:
-              "https://www.instagram.com/sarthak_hase?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+            instagram: "https://www.instagram.com/sarthak_hase",
             linkedin: "https://www.linkedin.com/in/sarthak-hase-9503aa241/",
           },
           {
@@ -176,10 +169,8 @@ const Team = () => {
           {
             name: "Ayushi Sahani",
             image: image25,
-            instagram:
-              "https://www.instagram.com/ay_ushi6556?igsh=cWQ4cm5nZjE5OHBp",
-            linkedin:
-              "https://www.linkedin.com/in/ayushi-sahani-922bb5369?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+            instagram: "https://www.instagram.com/ay_ushi6556/",
+            linkedin: "https://www.linkedin.com/in/ayushi-sahani-922bb5369",
           },
           {
             name: "Manvi Sheth",
@@ -196,26 +187,20 @@ const Team = () => {
           {
             name: "Shravanee Kulkarni",
             image: image28,
-            instagram:
-              "https://www.instagram.com/shravanee_09?igsh=eDZqazd0Y3E1NDRn",
-            linkedin:
-              "https://www.linkedin.com/in/shravanee-kulkarni-230989356/",
+            instagram: "https://www.instagram.com/shravanee_09",
+            linkedin: "https://www.linkedin.com/in/shravanee-kulkarni-230989356/",
           },
           {
             name: "Umesh Motiwale",
             image: image29,
-            instagram:
-              "https://www.instagram.com/umesh_motiwale?igsh=MWV0NmZmdDFrZ3J1MA==",
-            linkedin:
-              "https://www.linkedin.com/in/umesh-motiwale-289132319?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+            instagram: "https://www.instagram.com/umesh_motiwale",
+            linkedin: "https://www.linkedin.com/in/umesh-motiwale-289132319",
           },
           {
             name: "Viraj Jadhav",
             image: image30,
-            instagram:
-              "https://www.instagram.com/viraj_jadhav_0108?igsh=b243dWx6aW1samZt-- ",
-            linkedin:
-              "https://www.linkedin.com/in/viraj-jadhav-7b4933346?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+            instagram: "https://www.instagram.com/viraj_jadhav_0108",
+            linkedin: "https://www.linkedin.com/in/viraj-jadhav-7b4933346",
           },
         ],
       },
