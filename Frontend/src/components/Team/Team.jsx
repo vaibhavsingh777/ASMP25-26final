@@ -65,9 +65,9 @@ const Team = () => {
         coordinators: [
           { name: 'Manas Gupta', image: image15, instagram: 'https://www.instagram.com/manasgupta1014/', linkedin: 'https://www.linkedin.com/in/manas-gupta-bb487b317' },
           { name: 'Ridham Saxena', image: image16, instagram: 'https://www.instagram.com/ridham.2006/', linkedin: 'https://www.linkedin.com/in/ridham-saxena-5a1555318?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
-          { name: 'Srishti Poddar', image: image5, instagram: 'https://www.instagram.com/srishtipodda.r/', linkedin: 'www.linkedin.com/in/srishti-poddar-855944260' },
+          { name: 'Srishti Poddar', image: image5, instagram: 'https://www.instagram.com/srishtipodda.r/', linkedin: 'https://www.linkedin.com/in/srishti-poddar-855944260/' },
           { name: 'Vaibhav Kumar', image: image14, instagram: 'https://www.instagram.com/fr._.vaibhav/', linkedin: 'https://www.linkedin.com/in/vaibhav-kumar-6a7b84330/' },
-          { name: 'Jasnoor Kaur', image: image3, instagram: 'https://www.instagram.com/_noor._.78/', linkedin: 'linkedin.com/in/jasnoor-kaur-24b40734a', },
+          { name: 'Jasnoor Kaur', image: image3, instagram: 'https://www.instagram.com/_noor._.78/', linkedin: 'https://www.linkedin.com/in/jasnoor-kaur-24b40734a/', },
         ]
       },
       {
@@ -93,7 +93,7 @@ const Team = () => {
             name: 'Vaibhav Singh',
             image: image21,
             instagram: 'https://www.instagram.com/cheekycaibhav/',
-            linkedin: 'www.linkedin.com/in/vaibhav-singh-35110022a'
+            linkedin: 'https://www.linkedin.com/in/vaibhavsingh776/'
           },
           {
             name: 'Rutika Hake',
