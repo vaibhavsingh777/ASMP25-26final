@@ -5,7 +5,8 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   height: 100vh;
   background: #000000;
   font-family: 'Fraunces', serif;
@@ -21,7 +22,7 @@ body, html {
   justify-content: center;
   min-height: 100vh;
   padding: 20px;
-  background-image: url('../assets/images/registerbg1.png');
+  background-image: url('../assets/teampages/registerbg1.png');
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -34,7 +35,7 @@ body, html {
   display: flex;
   flex-direction: column;
   gap: 0;
-  
+
 }
 
 /* Image Container */

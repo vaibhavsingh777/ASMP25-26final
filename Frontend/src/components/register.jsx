@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../assets/images/mk.png";
+import logo from "../assets/teampage/mk.png";
 import "../styles/Register.css";
 import Select from "react-select";
 import UseSignup from "../hooks/useSignup";

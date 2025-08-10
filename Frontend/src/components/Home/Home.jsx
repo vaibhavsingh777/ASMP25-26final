@@ -1,7 +1,7 @@
 import React from "react";
 import LazyLoad from "react-lazyload";
 import asmpTrailerMp4 from "../../assets/videos/asmp.mp4";
-import posterImage from "../../assets/images/posterimage.jpg";
+import posterImage from "../../assets/teampage/posterimage.png";
 import "./Home.css";
 
 function Home() {

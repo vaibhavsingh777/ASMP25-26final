@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/Login.css";
 import { Navigate } from "react-router-dom";
 import UseLogin from "../hooks/useLogin";
-import logo from "../assets/images/mk.png";
+import logo from "../assets/teampage/mk.png";
 import CursorAnimation from "./CursorAnimation";
 
 function Login() {

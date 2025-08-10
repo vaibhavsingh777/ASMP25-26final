@@ -2,7 +2,7 @@
   import { Spin as Hamburger } from "hamburger-react";
   import Checkbox from "./HamburgerIcon";
   import { useNavigate, useLocation } from "react-router-dom";
-  import logo from "../../assets/images/Sarc.png";
+  import logo from "../../assets/teampage/Sarc.png";
   import {
     NavbarContainer,
     LeftContainer,
