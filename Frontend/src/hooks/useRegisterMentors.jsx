@@ -40,6 +40,7 @@ const UseRegisterMentors = (props) => {
       console.log("Response data:", responseData);
 
       if (response.status === 200) {
+        setSuccess(true);
         setError("Registration Successful");
         Swal.fire({
           icon: "success",

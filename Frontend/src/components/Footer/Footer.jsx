@@ -8,12 +8,14 @@ const Footer = () => {
         <div className="asmp-footer">
             {/* <p>Made with ❤️ by SARC</p> */}
             <div className="heart">
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-                <p style={{ margin: '0', fontFamily: "Fraunces, serif",}}>Made with </p>
-                <p className="heartbeat" style={{ margin: '0 5px' }}>❤️</p>
-                <p className="heartecho" style={{ margin: '0 5px' }}>❤️</p>
-                <p style={{ margin: '0', fontFamily: "Fraunces, serif",}}> by SARC</p>
-            </div>
+                <div style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
+                    <p style={{ margin: '0', fontFamily: "Fraunces, serif" }}>Made with </p>
+                    <span style={{ position: "relative", display: "inline-block", width: "1.5rem" }}>
+                        <p className="heartbeat" style={{ margin: '0 5px', position: 'relative' }}>❤️</p>
+                        <p className="heartecho" style={{ margin: '0 5px' }}>❤️</p>
+                    </span>
+                    <p style={{ margin: '0', fontFamily: "Fraunces, serif" }}> &nbsp;&nbsp;by SARC</p>
+                </div>
             </div>
             <div className="social-links">
                 <ul className='footer-ul'>

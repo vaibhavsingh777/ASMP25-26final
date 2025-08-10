@@ -1,7 +1,8 @@
 import uuid
 from django.db import models
+from pytz import timezone
 from Mentors.options import BRANCH_CHOICES, DEGREE_CHOICES, HOSTEL_CHOICES
-
+from django.utils import timezone
 class User(models.Model):
     fullname = models.CharField(max_length=100)
     ldap = models.EmailField(max_length=100, unique=True)
@@ -12,7 +13,7 @@ class User(models.Model):
     password = models.CharField(max_length=100)
     is_active = models.BooleanField(default=False)
     accessToken = models.UUIDField(default=uuid.uuid4, editable= True, unique=True)
-# added field joined_at
+    date_joined = models.DateTimeField(default=timezone.now)
     def __str__(self):
         return self.fullname + " " + self.ldap
 
