@@ -9,27 +9,17 @@
   }
 }
 
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .heading {
   font-size: clamp(2.5rem, 6vw, 8rem);
   font-weight: 400;
   text-align: center;
   color: #FFFFFF;
   margin-bottom: 2.5rem;
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces ', serif;
   letter-spacing: 0%;
 
   
+
   /* Subtle entrance animation */
   animation: fadeInUp 1.2s ease-out forwards;
   opacity: 0;
@@ -39,13 +29,13 @@
 .event-images-container {
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
     display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 7rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 10rem;
   justify-items: center;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .main-container-events {
@@ -75,9 +65,9 @@
 .event-item {
   position: relative;
   width: 100%;
-  max-width: 750px;
-  margin: 20px;
-  height: 500px;
+  max-width: 350px;
+  margin: 10px;
+  height: 450px;
   cursor: pointer;
   box-sizing: border-box;
   flex-shrink: 0;
@@ -92,7 +82,7 @@
 .event-image {
   aspect-ratio: 3 / 4;
   width: 100%;
-  height: 75%;
+  height: 80%;
   object-fit: cover;
   display: block;
   border: 8px solid white;
@@ -102,7 +92,7 @@
 .event-title {
   margin-top: 10px;
   color: #fff;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   text-align: center;
   font-weight: 600;
   word-wrap: break-word;
@@ -117,8 +107,8 @@
 /* Flip container */
 .flip-container {
   perspective: 1000px;
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
 }
 
 .flipper {
@@ -157,55 +147,48 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between; 
-  
   background-color: #111;
 }
 
 
 .back {
   transform: rotateY(180deg);
-  background-color: rgba(0, 0, 0, 0.5);
+   background-color: rgba(0, 0, 0, 0.5);
+  
   color: #fff;
   font-family: 'Libre Bodoni', serif;
+  padding: 1rem;
   text-align: justify;
   z-index: 1;
-  border: 6px solid rgba(255, 255, 255, 0.976);
+    border: 6px solid rgba(255, 255, 255, 0.976);
   border-radius: 12px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  
-  /* ✅ These are key */
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
-  align-items: stretch;
-  padding: 0; /* no padding to waste space */
-}
 
+    backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* for Safari */
+ display: flex;
+  justify-content: center;  /* horizontal center */
+  align-items: center;      /* vertical center */
+  text-align: center;
+  padding: 1rem;
+}
 
 .event-description {
-  font-size: 1rem !important;
+  font-size: 0.9 rem;
   line-height: 1.4;
   text-align: justify;
-  overflow-y: hidden;
-  max-height: 280px;
-  padding: 0.1rem;
-   scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-.event-description::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  overflow-y: auto;
+  max-height: 300px;
+  padding: 0.5rem;
+    justify-content: center;  /* centers text block horizontally */
+  align-items: center;      /* centers vertically if short */
+  text-align: center;  
 }
 
 .scrolling-text {
-  flex-grow: 1;
-  width: 100%;
-  overflow-y: auto; /* scroll if needed */
-  padding: 1rem;
-  box-sizing: border-box;
+  position: relative;
+  height: 300px;
+  overflow: hidden;
 }
-
 
 .scroll-text-scroll {
   position: absolute;
@@ -267,10 +250,9 @@
 }
 
 .scrolling-text p {
-  min-height: 0;
-  height: auto;
-  padding: 0;
   margin: 0;
+  padding: 0 1rem;
+  min-height: 400px; /* Force scrolling even if text is short */
 }
 
 
@@ -317,10 +299,127 @@
   }
 
   .event-item {
-        max-width: 90vw;
+    max-width: 100%; /* full width on small screens */
   }
 
   .event-title {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
+}
+
+.scroll-box {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* removes scrollbar */
+  position: relative;
+}
+
+.scroll-content {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  white-space: normal;
+  text-align: justify;
+  line-height: 1.6;
+  transition: top 0.1s linear;
+   left: 50%;                  /* start from horizontal center */
+  transform: translateX(-50%);
+}
+.card {
+  width: 300px;
+  height: 400px;
+  perspective: 1000px;
+  margin: 20px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.front {
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+.scroll-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.scroll-content {
+  position: absolute;
+  white-space: normal;
+  width: 100%;
+  
+  animation: scrollText 14s linear forwards; /* Extended duration */
+  font-size: 0.85rem;      /* From 1rem */
+  line-height: 1.2rem;
+  word-break: break-word;
+ 
+    padding: 0 20px; /* Equal left and right padding */
+  
+  box-sizing: border-box; /* Ensures padding doesn't break layout */
+  margin: auto; /* Center the block horizontally if needed */
+  max-width: 95%; /* Prevents overflow on large screens */
+  text-align: center;
+}
+
+.scroll-wrapper {
+  max-height: 100%;
+  overflow-y: auto;
+  width: 100%;
+  display: flex;
+  align-items: center; /* vertical center if short */
+}
+
+/* Hide scrollbars universally */
+.scroll-box::-webkit-scrollbar {
+  display: none;
+}
+.scroll-box {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Auto-scroll animation from bottom to top */
+@keyframes scrollText {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: 0%;
+  }
+}
+
+/* Title below card */
+.event-title {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0px 0px 5px black;
 }
